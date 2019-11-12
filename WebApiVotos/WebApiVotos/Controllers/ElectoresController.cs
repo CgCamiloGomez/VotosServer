@@ -19,10 +19,16 @@ namespace WebApiVotos.Controllers
         //}
         // GET: api/Prueba/5
         ElectorDataAcces repositorio = new ElectorDataAcces();
-
-        public Elector_VTS GetdElectorById(string id)
+        [HttpGet]
+        public IHttpActionResult GetdElectorById(string id)
         {
-            return repositorio.ObtenerDatosElectoresPorId(id);
+            var data = repositorio.ObtenerDatosElectoresPorId(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            //var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(data);
+            return Ok(data);
         }
     }
 }
