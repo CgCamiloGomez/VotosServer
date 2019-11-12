@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using WebApiVotos.DataAcces;
 using WebApiVotos.Models;
+using System.Web.Http.Cors;
 
 namespace WebApiVotos.Controllers
 {
+    [EnableCors(origins: "*", headers:"*", methods:"*")]
     public class ElectoresController : ApiController
     {
         //public ICollection<Elector_VTS> GetAllElectores()
@@ -20,7 +22,6 @@ namespace WebApiVotos.Controllers
 
         public Elector_VTS GetdElectorById(string id)
         {
-            
             return repositorio.ObtenerDatosElectoresPorId(id);
         }
     }
