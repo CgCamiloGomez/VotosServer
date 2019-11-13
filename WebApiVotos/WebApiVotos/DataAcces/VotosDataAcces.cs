@@ -23,12 +23,36 @@ namespace WebApiVotos.DataAcces
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdCandidato", voto.IdCandidato);
                 cmd.Parameters.AddWithValue("@IdPuestoVotacion", voto.IdPuestoVotacion);
+                cmd.Parameters.AddWithValue("@IdElector", voto.IdElector);
                 guardo = cmd.ExecuteNonQuery();
 
                 
                 conn.Close();
             }
                 return guardo;
+        }
+
+        public List<Candidato_VTS>  ObtenerVotosPorCandidato()
+        {
+            List<Candidato_VTS> votosCandidatos = new List<Candidato_VTS>(); 
+            using (SqlConnection conn = new SqlConnection(conexion))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("consultarVotos",conn);
+                conn.Close();
+            }
+            return votosCandidatos;
+        }
+
+        public int ObtenerVotosPuestoVotacion()
+        {
+            using (SqlConnection conn = new SqlConnection(conexion))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("consultarVotos", conn);
+                conn.Close();
+            }
+            return 0;
         }
     }
 }
