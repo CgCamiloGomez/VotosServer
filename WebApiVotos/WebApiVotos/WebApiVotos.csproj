@@ -14,7 +14,7 @@
     <RootNamespace>WebApiVotos</RootNamespace>
     <AssemblyName>WebApiVotos</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44304</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
@@ -102,7 +102,6 @@
     <Compile Include="Models\Candidato_VTS.cs" />
     <Compile Include="Models\Elector_VTS.cs" />
     <Compile Include="Models\Votos_VTS.cs" />
-    <Compile Include="Negocio\ElectorNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +131,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52861</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4035/ApiVotos/</IISUrl>
+          <IISUrl>http://localhost:52861/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:4035/ApiVotos/</IISAppRootUrl>
+          <IISAppRootUrl>http://localhost:52861/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
