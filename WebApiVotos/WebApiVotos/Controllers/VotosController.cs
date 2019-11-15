@@ -21,22 +21,25 @@ namespace WebApiVotos.Controllers
             return repositorio.insertarVoto(voto);
         }
         [HttpGet]
-        public IHttpActionResult ObtenerVotosPorCandidato()
+        public IHttpActionResult ObtenerVotosCandidatos()
         {
             try
             {
-                return Ok();
-            }catch(Exception ex)
+               var votos = repositorio.ObtenerVotosCandidatos();
+                return Ok(votos);
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
         [HttpGet]
-        public IHttpActionResult ObtenerVotosPuestoVotacion()
+        public IHttpActionResult ObtenerVotosPuestoVotacion(int id)
         {
             try
             {
-                return Ok();
+                var cantidadVotos = repositorio.ObtenerVotosPuestoVotacion(id);
+                return Ok(cantidadVotos);
             }
             catch (Exception ex)
             {

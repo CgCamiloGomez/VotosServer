@@ -22,13 +22,16 @@ namespace WebApiVotos.Controllers
         [HttpGet]
         public IHttpActionResult GetdElectorById(string id)
         {
-            var data = repositorio.ObtenerDatosElectoresPorId(id);
-            if (data == null)
+            
+            try
             {
-                return NotFound();
+                var data = repositorio.ObtenerDatosElectoresPorId(id);
+                return Ok(data);
             }
-            //var jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(data);
-            return Ok(data);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

@@ -26,12 +26,6 @@ namespace WebApiVotos.DataAcces
                 cmd.Parameters.AddWithValue("@Documento", documento);
                 SqlDataReader registros = cmd.ExecuteReader();
 
-                if (registros == null)
-                {
-                    elector = null;
-                }
-                else
-                {
                     while (registros.Read())
                     {
                         elector.Id = registros.GetInt32(0);
@@ -45,7 +39,7 @@ namespace WebApiVotos.DataAcces
                         elector.Voto = registros.GetBoolean(8);
 
                     }
-                }
+         
                 conn.Close();
             }
 

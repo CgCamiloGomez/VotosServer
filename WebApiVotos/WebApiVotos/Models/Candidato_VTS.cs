@@ -9,8 +9,7 @@ namespace WebApiVotos.Models
     {
         public int Id { get; set; }
         public string nombre { get; set; }
-        public string apellido { get; set; }
         public string partido { get; set; }
-        public Votos_VTS votos { get; set; }
+        public int cantidadvotos { get; set; }
     }
 }
